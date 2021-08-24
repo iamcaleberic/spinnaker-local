@@ -1,0 +1,1 @@
+kubectl config view --minify --raw | sed '/user:$/,$d'
