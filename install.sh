@@ -7,3 +7,5 @@ kubectl -n spinnaker-operator apply -f deploy/operator/cluster
 kubectl create ns spinnaker
 kubectl create secret generic spin-secrets  --from-file kubeconfig -n spinnaker
 kubectl -n spinnaker apply -f deploy/spinnaker/basic
+
+kubectl -n spinnaker apply -f spinnaker/spinnakeraccount.yaml
