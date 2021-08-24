@@ -67,7 +67,7 @@ spec:
   expose:
     type: service  # Kubernetes LoadBalancer type (service/ingress), note: only "service" is supported for now
     service:
-      type: LoadBalancer
+      type: ClusterIP
 
       # annotations to be set on Kubernetes LoadBalancer type
       # they will only apply to spin-gate, spin-gate-x509, or spin-deck

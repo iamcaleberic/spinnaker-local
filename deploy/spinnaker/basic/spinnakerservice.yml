@@ -5,14 +5,22 @@ metadata:
 spec:
   spinnakerConfig:
     config:
-      version: 1.17.1   # the version of Spinnaker to be deployed
+      version: 1.26.6 # the version of Spinnaker to be deployed
       persistentStorage:
         persistentStoreType: s3
         s3:
-          bucket: <change-me> # Change to a unique name. Spinnaker stores application and pipeline definitions here
+          bucket: spinlocal
           rootFolder: front50
+          accessKeyId: 
+          secretAccessKey: encrypted:k8s!n:spin-s3-secret!k:aws-access-key
+          region: eu-west-2
+      providers:
+        kubernetes:
+          enabled: true
+  accounts:
+    enabled: true
   # spec.expose - This section defines how Spinnaker should be publicly exposed
   expose:
-    type: service  # Kubernetes LoadBalancer type (service/ingress), note: only "service" is supported for now
+    type: service # Kubernetes LoadBalancer type (service/ingress), note: only "service" is supported for now
     service:
-      type: LoadBalancer
+      type: ClusterIP
